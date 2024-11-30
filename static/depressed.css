@@ -1,0 +1,98 @@
+/* Body styling */
+body {
+    background: linear-gradient(135deg, #d7e3fc, #eef2f3);
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Header styling */
+.header-text {
+    color: #4a76a8;
+    font-size: 2.5em;
+    margin: 0 0 20px;
+    animation: fadeIn 2s ease-in;
+}
+
+/* Main content styling */
+main p {
+    font-size: 1.2em;
+    color: #4a4a4a;
+    margin: 15px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+/* Link styling */
+a {
+    color: #4a76a8;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #3b5c7d;
+}
+
+a:hover {
+    color: #2f4b6e;
+    text-decoration: underline;
+}
+
+/* Form styling for questionnaire */
+form {
+    margin-top: 20px;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+
+form label {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0 5px;
+    display: block;
+}
+
+form input[type="radio"] {
+    margin-right: 10px;
+}
+
+form button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #4a76a8;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-text {
+        font-size: 2em;
+    }
+
+    main p {
+        font-size: 1em;
+    }
+}
