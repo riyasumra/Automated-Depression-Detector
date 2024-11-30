@@ -6,7 +6,7 @@ An Automated System to Detect Depression Using Speech
 
 
 
-🧠 **Features**
+## 🧠 **Features**
 
 - **CNN for Speech Analysis**: Converts audio into spectrograms and classifies them using Convolutional Neural Networks.
 - **SVM for Text-Based Analysis**: Uses TF-IDF feature extraction and SVM for classification.
@@ -15,7 +15,7 @@ An Automated System to Detect Depression Using Speech
 - **Web Interface**: Includes a Flask-based web app for live testing.
 
 
- 📊 **Datasets**
+## 📊 **Datasets**
 
 - **DAIC-WOZ Depression Dataset**  
   - Includes audio recordings with transcriptions annotated for depression detection.  
@@ -26,7 +26,7 @@ An Automated System to Detect Depression Using Speech
 
 
 
-⚙️ **Installation**
+## ⚙️ **Installation**
 
 1. **Clone the repository**:
    ```bash
@@ -46,7 +46,7 @@ An Automated System to Detect Depression Using Speech
 
 
 
- 🚀 **Usage**
+ ## 🚀 **Usage**
 
  **Training**
 
@@ -68,7 +68,7 @@ An Automated System to Detect Depression Using Speech
   You can also use pretrained model directly- mybert.h5
    ```
 
-### **Web Application**
+## **Web Application**
 To launch the web app for live predictions:
 ```bash
 cd app
@@ -90,7 +90,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 
 
-📈 **Results**
+## 📈 **Results**
 ![Screenshot 2024-11-13 220933](https://github.com/user-attachments/assets/97a3d253-c303-4700-92b4-6f5cef1c0362)
 ![Screenshot 2024-11-13 220949](https://github.com/user-attachments/assets/4bb1abb2-5474-4217-a5e0-43b90a1b0d7c)
 ![Screenshot 2024-11-13 221033](https://github.com/user-attachments/assets/299d92c1-2aed-4e02-bf94-8e7e7384ba09)
@@ -110,7 +110,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 
 
-👩‍🔬 **Future Improvements**
+## 👩‍🔬 **Future Improvements**
 
 - Integrating multimodal data (audio + text + facial emotions).
 - Implementing attention mechanisms in CNNs.
@@ -118,7 +118,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 - Deploying on cloud platforms for scalability.
 
 
-🤝 **Contributing**
+## 🤝 **Contributing**
 
 We welcome contributions!  
 - Fork the repository.
@@ -127,10 +127,9 @@ We welcome contributions!
 
 
 
-✨ **Acknowledgements**
+## ✨ **Acknowledgements**
 
 - [DAIC-WOZ Dataset](https://dcapswoz.ict.usc.edu/)
-- [RAVDESS Dataset](https://zenodo.org/record/1188976)
 - [Hugging Face Transformers](https://huggingface.co/transformers/)
 - [LibROSA](https://librosa.org/)
 
