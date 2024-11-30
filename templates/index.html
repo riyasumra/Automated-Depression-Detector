@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>DEPRESSION DETECTOR</h1>
+    </header>
+    
+    <main>
+        <!-- Left Side: Background Image -->
+        <div class="left-side">
+            <img src="{{ background_url }}" alt="Depression Detector Image">
+        </div>
+
+        <!-- Right Side: Questions and Buttons -->
+        <div class="right-side">
+            <p>"How have you been feeling lately? Is there anything that’s been on your mind, something you’re looking forward to, or something that’s troubling you? Feel free to share."</p>
+
+            <button id="record">Start Recording</button>
+            <button id="process" disabled>Process Audio</button>
+
+            <div id="result"></div>
+            <div id="timer" class="hidden"></div>
+            <div id="loading" class="hidden">
+                <p>Processing Your Audio...</p>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        let recordSeconds = 30;
+        let timerInterval;
+
+        document.getElementById('record').onclick = function() {
+            fetch('/record', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        document.getElementById('process').disabled = false;
+                        startRecordingTimer();
+                    }
+                })
+                .catch(err => console.error("Error starting recording: ", err));
+        };
+
+        document.getElementById('process').onclick = function() {
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('process').disabled = true;
+
+            fetch('/upload', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loading').classList.add('hidden');
+                    const final_prediction = data.prediction;
+                    if (final_prediction === 1) {
+                        window.location.href = "/depressed";
+                    } else {
+                        window.location.href = "/notdepressed";
+                    }
+                })
+                .catch(err => console.error("Error processing audio: ", err));
+        };
+
+        function startRecordingTimer() {
+            document.getElementById('timer').classList.remove('hidden');
+            timerInterval = setInterval(function() {
+                document.getElementById('timer').textContent = `Recording Time Left: ${recordSeconds}s`;
+                recordSeconds--;
+
+                if (recordSeconds < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer').textContent = 'Recording Stopped';
+                    document.getElementById('record').disabled = true;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

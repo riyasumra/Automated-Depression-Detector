@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Not Detected</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='notdepressed.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1 class="green">You're Not Depressed</h1>
+    </header>
+    <main>
+        <p>Great news! It seems like you're doing well. Remember, mental health is important. If you ever need to talk to someone, please reach out to a friend, family member, or a mental health professional.</p>
+    </main>
+    <audio id="notDepressedAudio" src="{{ audio_url }}" autoplay hidden></audio>
+    <script>
+        // Automatically play audio on page load
+        window.onload = function() {
+            var audio = document.getElementById("notDepressedAudio");
+            audio.play();
+        };
+    </script>
+</body>
+</html>

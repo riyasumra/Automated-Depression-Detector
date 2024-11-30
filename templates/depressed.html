@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Detected</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='depressed.css') }}">
+</head>
+<body>
+    <header>
+        <h1 class="header-text">Depression Detected</h1>
+    </header>
+    <main>
+        <p>It appears that signs of depression were detected. Remember, you don’t have to face this alone. Here are some resources that may help:</p>
+        <ul>
+            <li><a href="https://www.nimh.nih.gov/" target="_blank">National Institute of Mental Health</a></li>
+            <li><a href="https://www.psychiatry.org/" target="_blank">American Psychiatric Association</a></li>
+            <li><a href="https://findtreatment.samhsa.gov/" target="_blank">Find Treatment - SAMHSA</a></li>
+        </ul>
+        
+        <p>Consider reaching out to friends, family, or a mental health professional. Taking the first step toward support is already a sign of strength.</p>
+        
+        <!-- Additional Questionnaire -->
+        <h2>Further Evaluation</h2>
+    <form action="{{ url_for('process_questionnaire') }}" method="post">
+        <label>1. How often have you been feeling down, depressed, or hopeless?</label><br>
+        <input type="radio" name="q1" value="Not at all"> Not at all<br>
+        <input type="radio" name="q1" value="Several days"> Several days<br>
+        <input type="radio" name="q1" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q1" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>2. How often do you feel little interest or pleasure in doing things?</label><br>
+        <input type="radio" name="q2" value="Not at all"> Not at all<br>
+        <input type="radio" name="q2" value="Several days"> Several days<br>
+        <input type="radio" name="q2" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q2" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>3. How is your sleep quality?</label><br>
+        <input type="radio" name="q3" value="Very good"> Very good<br>
+        <input type="radio" name="q3" value="Good"> Good<br>
+        <input type="radio" name="q3" value="Poor"> Poor<br>
+        <input type="radio" name="q3" value="Very poor"> Very poor<br><br>
+        
+        <label>4. How often do you feel tired or have little energy?</label><br>
+        <input type="radio" name="q4" value="Not at all"> Not at all<br>
+        <input type="radio" name="q4" value="Several days"> Several days<br>
+        <input type="radio" name="q4" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q4" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>5. How often do you feel like you have difficulty concentrating on things?</label><br>
+        <input type="radio" name="q5" value="Not at all"> Not at all<br>
+        <input type="radio" name="q5" value="Several days"> Several days<br>
+        <input type="radio" name="q5" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q5" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>6. How often do you experience feelings of low self-worth or self-esteem?</label><br>
+        <input type="radio" name="q6" value="Not at all"> Not at all<br>
+        <input type="radio" name="q6" value="Several days"> Several days<br>
+        <input type="radio" name="q6" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q6" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>7. How is your appetite?</label><br>
+        <input type="radio" name="q7" value="Very good"> Very good<br>
+        <input type="radio" name="q7" value="Good"> Good<br>
+        <input type="radio" name="q7" value="Poor"> Poor<br>
+        <input type="radio" name="q7" value="Very poor"> Very poor<br><br>
+        
+        <label>8. How often do you experience difficulty sleeping or staying asleep?</label><br>
+        <input type="radio" name="q8" value="Not at all"> Not at all<br>
+        <input type="radio" name="q8" value="Several days"> Several days<br>
+        <input type="radio" name="q8" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q8" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>9. How often do you feel restless or unable to sit still?</label><br>
+        <input type="radio" name="q9" value="Not at all"> Not at all<br>
+        <input type="radio" name="q9" value="Several days"> Several days<br>
+        <input type="radio" name="q9" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q9" value="Nearly every day"> Nearly every day<br><br>
+        
+        <label>10. How often do you feel irritable or easily annoyed?</label><br>
+        <input type="radio" name="q10" value="Not at all"> Not at all<br>
+        <input type="radio" name="q10" value="Several days"> Several days<br>
+        <input type="radio" name="q10" value="More than half the days"> More than half the days<br>
+        <input type="radio" name="q10" value="Nearly every day"> Nearly every day<br><br>
+        
+        <button type="submit">Submit Evaluation</button>
+    </form>
+    </main>
+    <audio id="DepressedAudio" src="{{ audio_url }}" autoplay hidden></audio>
+    <script>
+        // Automatically play audio on page load
+        window.onload = function() {
+            var audio = document.getElementById("DepressedAudio");
+            audio.play();
+        };
+    </script>
+</body>
+</html>
